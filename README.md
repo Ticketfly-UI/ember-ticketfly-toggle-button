@@ -1,6 +1,10 @@
-# ember-ticketfly-toggle-button
+# Ember Ticketfly Toggle Button 
 
-This README outlines the details of collaborating on this Ember addon.
+This Ember addon provides the toglge button components of the Ticketfly UI library.
+
+## Usage
+
+See the demo [here](#). -TODO
 
 ## Installation
 
