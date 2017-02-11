@@ -1,5 +1,7 @@
 # ember-ticketfly-toggle-button
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Ticketfly-UI/ember-ticketfly-toggle-button.svg)](https://greenkeeper.io/)
+
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
