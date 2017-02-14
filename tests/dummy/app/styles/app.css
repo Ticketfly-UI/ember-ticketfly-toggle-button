@@ -1,0 +1,13 @@
+:root {
+  --font-family-gibson: 
+    Gibson, Akkurat-Pro, Helvetica, Roboto, Arial, sans-serif;
+  --font-family-akkurat-pro:
+    Akkurat-Pro, Helvetica, Roboto, Arial, sans-serif;
+}
+
+html, body {
+  background-color: var(--x-color-white);
+  font-family: var(--font-family-akkurat-pro);
+  line-height: var(--base-line-height);
+  color: var(--x-color-gray-9);
+}

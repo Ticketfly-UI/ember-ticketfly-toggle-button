@@ -1,0 +1,65 @@
+<h1>tf-toggle-button</h1>
+
+<p class="u-m-0">Size: 54px x 32px / 40px x 24px</p>
+<p class="u-m-0 u-mb-md">Default sizeGroup is "primary". Optionally receive colorGroup "neutral".</p>
+<p class="u-m-0 u-mb-md">Pass in the "aria-label" attribute for accessibility (recommended).</p>
+
+<h2>No parameters</h2>
+
+{{! BEGIN-SNIPPET no-params }}
+{{tf-toggle-button}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="no-params.hbs" class="u-mv-md u-p-md"}}
+
+<h2>Size Groups</h2>
+
+{{! BEGIN-SNIPPET size-groups }}
+{{tf-toggle-button aria-label="Primary"}}
+{{tf-toggle-button aria-label="Secondary" sizeGroup="secondary"}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="size-groups.hbs" class="u-mv-md u-p-md"}}
+
+<h2>Selected</h2>
+
+{{! BEGIN-SNIPPET selected }}
+{{tf-toggle-button aria-label="Primary pressed" pressed=true}}
+{{tf-toggle-button aria-label="Secondary pressed" sizeGroup="secondary" pressed=true}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="selected.hbs" class="u-mv-md u-p-md"}}
+
+<h2>Color Group</h2>
+
+{{! BEGIN-SNIPPET color-group }}
+{{tf-toggle-button aria-label="Neutral Primary" colorGroup="neutral"}}
+{{tf-toggle-button aria-label="Neutral Primary pressed" colorGroup="neutral" pressed=true}}
+
+{{tf-toggle-button aria-label="Neutral Secondary" colorGroup="neutral" sizeGroup="secondary"}}
+{{tf-toggle-button aria-label="Neutral Secondary pressed" colorGroup="neutral" sizeGroup="secondary" pressed=true}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="color-group.hbs" class="u-mv-md u-p-md"}}
+
+<h2>Disabled</h2>
+
+{{! BEGIN-SNIPPET disabled }}
+{{tf-toggle-button aria-label="disabled" disabled=true}}
+{{tf-toggle-button aria-label="disabled pressed" disabled=true pressed=true}}
+
+{{tf-toggle-button aria-label="Secondary disabled" sizeGroup="secondary" disabled=true}}
+{{tf-toggle-button aria-label="Secondary disabled pressed" sizeGroup="secondary" disabled=true pressed=true}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="disabled.hbs" class="u-mv-md u-p-md"}}
+
+<h2>Passing in an action</h2>
+
+{{! BEGIN-SNIPPET passing-action}}
+  {{tf-toggle-button action=(action "alertHello") aria-label="Click Me To Say Hi"}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="passing-action.hbs" class="u-mv-md u-p-md"}}
+
+{{code-snippet name="alert-hello.js" class="u-mv-md u-p-md"}}
