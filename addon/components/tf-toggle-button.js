@@ -4,6 +4,7 @@
 import Component from 'ember-component';
 import layout from '../templates/components/tf-toggle-button';
 import get from 'ember-metal/get';
+import { tryInvoke } from 'ember-utils';
 import computed from 'ember-computed';
 
 /**
@@ -25,18 +26,18 @@ export default Component.extend({
 
   hook: 'tf-toggle-button',
 
-  onClick() { return this; }, //noop
+  action() { }, // noop 
 
-  click() {
+  click(event) {
     this.toggleProperty('pressed');
     const pressed = get(this, 'pressed');
-    get(this, 'onClick')(pressed);
+    tryInvoke(this, 'action', [event, pressed]);
   },
 
   pressed: false,
 
   // aria-pressed is not a boolean value, but a string token of 'true' or 'false'
-  "aria-pressed": computed('pressed', {
+  'aria-pressed': computed('pressed', {
     get() {
       return get(this, 'pressed') ? 'true' : 'false';
     }

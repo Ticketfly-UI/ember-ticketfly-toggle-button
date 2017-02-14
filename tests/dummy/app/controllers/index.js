@@ -5,7 +5,7 @@ import Controller from 'ember-controller';
 export default Controller.extend({
   // BEGIN-SNIPPET alert-hello
   actions: {
-    alertHello(isPressed) {
+    alertHello(event, isPressed) {
       alert(`Hello, friend! Toggle button is pressed: ${isPressed}`);
     }
   }

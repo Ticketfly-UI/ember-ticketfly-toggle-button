@@ -69,3 +69,15 @@ test('receives sizeGroup', function(assert) {
   assert.ok($hook('tf-toggle-button').hasClass('c-tf-toggle-button--secondary'), 'Button has secondary size class');
   assert.ok($hook('tf-toggle-button__inner-circle').hasClass('c-tf-toggle-button__inner-circle--secondary'), 'Inner circle has secondary size class');
 });
+
+test('receives action', function(assert) {
+  assert.expect(1);
+
+  this.on('pressedButton', (event, isPressed) => {
+    assert.ok(isPressed, 'Button was pressed');
+  });
+
+  this.render(hbs`{{tf-toggle-button action=(action 'pressedButton')}}`);
+
+  $hook('tf-toggle-button').click();
+});
