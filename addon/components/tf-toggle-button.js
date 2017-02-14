@@ -22,7 +22,7 @@ export default Component.extend({
   tagName: 'button',
   type: 'button',
   attributeBindings: ['disabled', 'aria-label', 'aria-pressed', 'type'],
-  classNameBindings: ['buttonCategory', 'disabled:c-tf-toggle-button--disabled', '_pressed:c-tf-toggle-button--pressed'],
+  classNameBindings: ['colorCategory', 'sizeCategory', 'disabled:c-tf-toggle-button--disabled', '_pressed:c-tf-toggle-button--pressed'],
   classNames: ['c-tf-toggle-button', 'u-pv-0', 'u-ph-xs'],
 
   hook: 'tf-toggle-button',
@@ -30,18 +30,18 @@ export default Component.extend({
   colorGroup: '',
   sizeGroup: 'primary',
 
-  buttonCategory: computed('colorGroup','sizeGroup', {
+  colorCategory: computed('colorGroup', {
+    get() {
+      if (get(this, 'colorGroup') === 'neutral') { 
+        return 'c-tf-toggle-button--neutral';
+      }
+    }
+  }),
+
+  sizeCategory: computed('sizeGroup', {
     get() {
       const sizeGroup = get(this, 'sizeGroup');
-
-      let buttonCategory = `c-tf-toggle-button--${sizeGroup}`;
-
-      const colorGroup = get(this, 'colorGroup');
-      if (colorGroup === 'neutral') { 
-        buttonCategory += ' c-tf-toggle-button--neutral';
-      }
-
-      return buttonCategory;
+      return `c-tf-toggle-button--${sizeGroup}`;
     }
   }),
 
