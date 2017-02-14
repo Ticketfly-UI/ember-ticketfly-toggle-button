@@ -73,11 +73,35 @@ test('receives sizeGroup', function(assert) {
 test('receives action', function(assert) {
   assert.expect(1);
 
-  this.on('pressedButton', (event, isPressed) => {
-    assert.ok(isPressed, 'Button was pressed');
+  this.on('pressedButton', (isPressed) => {
+    assert.ok(isPressed, 'Sends back the isPressed value');
   });
 
   this.render(hbs`{{tf-toggle-button action=(action 'pressedButton')}}`);
 
   $hook('tf-toggle-button').click();
+});
+
+test(`toggling button does not mutate the value of 'pressed'`, function(assert) {
+  this.set('pressed', true);
+
+  this.render(hbs`{{tf-toggle-button pressed=pressed}}`);
+
+  $hook('tf-toggle-button').click();
+
+  const pressed = this.get('pressed');
+
+  assert.ok(pressed, 'Pressed is still true; not mutated by the component');
+});
+
+test(`mut helper to update the value of 'pressed'`, function(assert) {
+  this.set('pressed', true);
+
+  this.render(hbs`{{tf-toggle-button pressed=pressed action=(action (mut pressed))}}`);
+
+  $hook('tf-toggle-button').click();
+
+  const pressed = this.get('pressed');
+
+  assert.notOk(pressed, 'Pressed is false, mutated by the mut helper action');
 });
